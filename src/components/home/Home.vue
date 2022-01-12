@@ -24,12 +24,13 @@
             tipo="button"
             rotulo="ADICIONAR"
             estilo="padrao"
+            @botaoAtivado="adiciona(foto)"
           />
           <meu-botao
             tipo="button"
             rotulo="REMOVER"
             @botaoAtivado="remove(foto)"
-            :confirmacao="false"
+            :confirmacao="true"
             estilo="perigo"
           />
         </meu-painel>
@@ -74,6 +75,9 @@ export default {
     remove(foto) {
       alert("Foto " + foto.titulo + " apagada!");
     },
+    adiciona(foto){
+      alert("A foto " + foto.titulo + " foi adicionada com sucesso!")
+    }
   },
 
   created() {
