@@ -9,6 +9,12 @@
       @input="filtro = $event.target.value"
       placeholder="Buscar"
     />
+    <!-- <input
+      type="search"
+      class="filtro"
+      @input="valorRotacao = $event.target.value"
+      placeholder="Valor para rotação"
+    /> -->
     {{ filtro }}
     <ul v-if="controle" class="lista-fotos">
       <li
@@ -17,10 +23,12 @@
         class="lista-fotos-item"
       >
         <meu-painel :titulo="foto.titulo">
-          <a name="imagem" :href="foto.url" target="_blank"
-            ><imagem-responsiva :url="foto.url" :titulo="foto.titulo"
-          /></a>
-           <meu-botao
+          <imagem-responsiva
+            v-meu-transform:scale.animate=""
+            :url="foto.url"
+            :titulo="foto.titulo"
+          />
+          <meu-botao
             tipo="button"
             rotulo="ADICIONAR"
             estilo="padrao"
@@ -43,18 +51,21 @@
 import Painel from "../shared/painel/Painel.vue";
 import ImagemResponsiva from "../shared/imagem-responsiva/imagemResponsiva.vue";
 import Botao from "../shared/botao/Botao.vue";
+import transform from "../../directives/Transform"
 export default {
   components: {
     "meu-painel": Painel,
     "imagem-responsiva": ImagemResponsiva,
     "meu-botao": Botao,
   },
+  directives:{
+    'meu-transform': transform
+  },
   name: "app",
   data() {
     return {
       titulo: "Alurapic",
       controle: true,
-      parentMessage: "Pai",
       fotos: [],
       filtro: "",
     };
@@ -75,9 +86,9 @@ export default {
     remove(foto) {
       alert("Foto " + foto.titulo + " apagada!");
     },
-    adiciona(foto){
-      alert("A foto " + foto.titulo + " foi adicionada com sucesso!")
-    }
+    adiciona(foto) {
+      alert("A foto " + foto.titulo + " foi adicionada com sucesso!");
+    },
   },
 
   created() {
