@@ -1,8 +1,8 @@
 <template>
     <nav>
-      <ul>
+      <ul class="menu-ul">
         <li v-for="rota in rotas" :key="rota.titulo">
-          <router-link :to="rota.path ? rota.path : '/'">
+          <router-link class="menu-li" :to="rota.path ? rota.path : '/'">
             {{ rota.titulo }}
           </router-link>
         </li>
@@ -22,5 +22,14 @@ export default {
 </script>
 
 <style scoped>
+.menu-ul{
+  font-size: 2rem;  
+  list-style-type: none;
+  
+}
 
+.menu-li{
+  text-decoration: none;
+  color: darkcyan;
+}
 </style>
