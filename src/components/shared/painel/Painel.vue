@@ -13,21 +13,22 @@
 <script>
 export default {
   props: ["titulo"],
-  data (){
+  data() {
     return {
-      visivel: true
-    }
-  }
+      visivel: true,
+    };
+  },
 };
 </script>
 
 <style scoped>
 .painel {
   padding: 0 auto;
-  border: solid 2px grey;
+  /* border: solid 2px grey; */
+    background: #97979B;
   display: inline-block;
   margin: 5px;
-  box-shadow: 5px 5px 10px grey;
+  box-shadow: 0 4px 12px -2px ;
   width: 200px;
   height: 100%;
   vertical-align: top;
@@ -37,25 +38,23 @@ export default {
 
 .painel .painel-titulo {
   text-align: center;
-  border: solid 2px;
-  background: #4D5B6B;
+  /* border: solid 2px; */
+  background: #4d5b6b;
   margin: 0 0 15px 0;
   padding: 10px;
   text-transform: uppercase;
 }
-
-.painel-conteudo{
+.painel-conteudo {
   overflow: hidden;
 }
-
-*{
-  box-shadow: 5px 5px 5px;
+* {
+  /* box-shadow: 5px 5px 5px; */
 }
 .painel-fade-enter-active {
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .painel-fade-leave-active {
-  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
 }
 .painel-fade-enter, .painel-fade-leave-to
 /* .painel-fade-leave-active below version 2.1.8 */ {

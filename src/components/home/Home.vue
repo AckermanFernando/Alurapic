@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <h1 class="centralizado">{{ titulo }}</h1>
+    <h1 class="centralizado"><span class="texto-azul">{{ titulo1 }}</span>{{ titulo2 }} <span class="texto-azul">{{titulo3}}</span></h1>
     <p v-show="message" class="centralizado">{{ message }}</p>
     <input
       type="search"
@@ -69,6 +69,9 @@ export default {
       fotos: [],
       filtro: "",
       message: "",
+      titulo1: 'Navegue por',
+      titulo2: ' milhares ',
+      titulo3: 'de imagens'
     };
   },
 
@@ -135,6 +138,10 @@ export default {
 <style>
 .centralizado {
   text-align: center;
+  color: #d2991f;
+}
+.texto-azul{
+  color: #0e0f33;
 }
 .lista-fotos {
   list-style: none;
@@ -143,9 +150,10 @@ export default {
   display: inline-block;
 }
 .filtro {
+  margin-bottom: 5em;
   display: block;
   width: 100%;
   height: 2rem;
-  box-shadow: 4px 3px 8px 0px ;
+  /* box-shadow: 4px 3px 8px 0px ; */
 }
 </style>

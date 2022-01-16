@@ -70,8 +70,10 @@ export default {
 form{
   padding: 2rem 14rem;
 }
-.centralizado {
-  text-align: center;
+h1.centralizado {
+  color: #0e0f33;
+  text-shadow: -1px 0 black, 0 1px black,
+      1px 0 black, 0 -1px black ;
 }
 .controle {
   font-size: 1.2em;

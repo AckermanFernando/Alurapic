@@ -1,17 +1,12 @@
 <template>
   <div id="app" class="corpo">
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https: //fonts.googleapis.com/css2? family= Dongle:wght@400;700 & display=swap"
-      rel="stylesheet"
-    /> -->
     <div class="topo">
       <div><img class="logo" src="https://github.com/AckermanFernando/Alurapic/blob/master/src/img/logo.png?raw=true" alt="logo alurapic"></div>
-      <h1 class="titulo">{{ titulo }}</h1>
+      <!-- <h1 class="titulo">{{ titulo }}</h1> -->
       <!-- <div class="space"></div> -->
       <meu-menu class="menu" :rotas="routes" />
     </div>
+    <div class="listra-amarela"></div>
     <div class="conteudo">
       <transition name="pagina">
         <router-view></router-view>
@@ -49,10 +44,16 @@ ul,
 #app {
   margin: 0;
   font-size: x-large;
+  
+}
+.listra-amarela{
+  height: 5px;
+  background: #d2991f;
 }
 .logo{
-  width: 150px;
-  height: 150px;
+  margin-left: 1rem;
+  width: 125px;
+  height: 125px;
 }
 .titulo {
   color: #d2991f;
