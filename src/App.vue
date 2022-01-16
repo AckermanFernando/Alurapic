@@ -7,9 +7,9 @@
       rel="stylesheet"
     /> -->
     <div class="topo">
-      <div class="logo"><img src="" alt="logo alurapic"></div>
+      <div><img class="logo" src="https://github.com/AckermanFernando/Alurapic/blob/master/src/img/logo.png?raw=true" alt="logo alurapic"></div>
       <h1 class="titulo">{{ titulo }}</h1>
-      <div class="space"></div>
+      <!-- <div class="space"></div> -->
       <meu-menu class="menu" :rotas="routes" />
     </div>
     <div class="conteudo">
@@ -50,6 +50,10 @@ ul,
   margin: 0;
   font-size: x-large;
 }
+.logo{
+  width: 150px;
+  height: 150px;
+}
 .titulo {
   color: #d2991f;
   
@@ -69,7 +73,7 @@ ul,
 .topo {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   height: 10%;
   width: 100%;
   background: #0e0f33;
