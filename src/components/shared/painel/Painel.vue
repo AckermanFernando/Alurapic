@@ -32,12 +32,13 @@ export default {
   height: 100%;
   vertical-align: top;
   text-align: center;
+  font-size: medium;
 }
 
 .painel .painel-titulo {
   text-align: center;
   border: solid 2px;
-  background: lightblue;
+  background: #4D5B6B;
   margin: 0 0 15px 0;
   padding: 10px;
   text-transform: uppercase;

@@ -67,6 +67,9 @@ export default {
 };
 </script>
 <style scoped>
+form{
+  padding: 2rem 14rem;
+}
 .centralizado {
   text-align: center;
 }

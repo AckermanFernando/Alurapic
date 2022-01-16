@@ -2,7 +2,7 @@
 <template>
   <div>
     <h1 class="centralizado">{{ titulo }}</h1>
-
+    <p v-show="message" class="centralizado">{{ message }}</p>
     <input
       type="search"
       class="filtro"
@@ -35,7 +35,7 @@
             @botaoAtivado="adiciona(foto)"
           />
           <meu-botao
-            tipo="button"
+            tipo="submit"
             rotulo="REMOVER"
             @botaoAtivado="remove(foto)"
             :confirmacao="true"
@@ -49,25 +49,26 @@
 
 <script>
 import Painel from "../shared/painel/Painel.vue";
-import ImagemResponsiva from "../shared/imagem-responsiva/imagemResponsiva.vue";
+import ImagemResponsiva from "../shared/imagem-responsiva/ImagemResponsiva.vue";
 import Botao from "../shared/botao/Botao.vue";
-import transform from "../../directives/Transform"
+import transform from "../../directives/Transform";
 export default {
   components: {
     "meu-painel": Painel,
     "imagem-responsiva": ImagemResponsiva,
     "meu-botao": Botao,
   },
-  directives:{
-    'meu-transform': transform
+  directives: {
+    "meu-transform": transform,
   },
   name: "app",
   data() {
     return {
-      titulo: "Alurapic",
+      
       controle: true,
       fotos: [],
       filtro: "",
+      message: "",
     };
   },
 
@@ -84,10 +85,35 @@ export default {
 
   methods: {
     remove(foto) {
-      alert("Foto " + foto.titulo + " apagada!");
+      this.$http.delete(`http://localhost:3000/v1/fotos/${foto._id}`).then(
+        () => {
+          //     this.message = "Foto removida com sucesso!!!";
+          this.$http
+            .get("http://localhost:3000/v1/fotos")
+            .then((res) => res.json())
+            .then(
+              (fotos) => (this.fotos = fotos),
+              (err) => console.log(err)
+            );
+        },
+        (err) => {
+          alert("Foto " + foto.titulo + " apagada!");
+          console.log(err);
+        }
+      );
     },
     adiciona(foto) {
       alert("A foto " + foto.titulo + " foi adicionada com sucesso!");
+    },
+
+    getFunction() {
+      this.$http
+        .get("http://localhost:3000/v1/fotos")
+        .then((res) => res.json())
+        .then(
+          (fotos) => (this.fotos = fotos),
+          (err) => console.log(err)
+        );
     },
   },
 
@@ -119,5 +145,7 @@ export default {
 .filtro {
   display: block;
   width: 100%;
+  height: 2rem;
+  box-shadow: 4px 3px 8px 0px ;
 }
 </style>

@@ -1,10 +1,22 @@
-
 <template>
   <div id="app" class="corpo">
-    <meu-menu :rotas="routes" />
-    <transition name="pagina">
-      <router-view></router-view>
-    </transition>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https: //fonts.googleapis.com/css2? family= Dongle:wght@400;700 & display=swap"
+      rel="stylesheet"
+    /> -->
+    <div class="topo">
+      <div class="logo"><img src="" alt="logo alurapic"></div>
+      <h1 class="titulo">{{ titulo }}</h1>
+      <div class="space"></div>
+      <meu-menu class="menu" :rotas="routes" />
+    </div>
+    <div class="conteudo">
+      <transition name="pagina">
+        <router-view></router-view>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -20,18 +32,51 @@ export default {
   data() {
     return {
       routes,
+      titulo: "Alurapic",
     };
   },
 };
 </script>
 
 <style>
-.corpo {
-  margin: 0 auto;
-  font-family: Helvetica, sans-serif;
-  width: 96%;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+* {
+  color: #07060b;
 }
-
+body,
+ul,
+.topo,
+#app {
+  margin: 0;
+  font-size: x-large;
+}
+.titulo {
+  color: #d2991f;
+  
+}
+.space {
+  width: 20%;
+}
+.menu {
+  display: flex;
+  justify-content: center;
+}
+.corpo {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+}
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 10%;
+  width: 100%;
+  background: #0e0f33;
+}
+.conteudo {
+  margin: 5%;
+}
 .pagina-enter-active {
   transition: all 0.3s ease;
 }
