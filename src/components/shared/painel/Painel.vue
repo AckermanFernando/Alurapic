@@ -28,7 +28,7 @@ export default {
     background: #97979B;
   display: inline-block;
   margin: 5px;
-  box-shadow: 0 4px 12px -2px ;
+  box-shadow: 0 4px 12px -2px;
   width: 200px;
   height: 100%;
   vertical-align: top;

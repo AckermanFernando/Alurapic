@@ -1,10 +1,11 @@
-export default{
-
+export default {
   bind (el, binding, vnode) {
     let current = 0
 
     el.addEventListener('dblclick', function () {
-      let incremento = !binding.value && binding.arg == 'scale' ? 1.2 : binding.value || 90
+      let incremento =
+        !binding.value && binding.arg == 'scale' ? 1.2 : binding.value || 90
+
       let efeito
 
       if (!binding.arg || binding.arg == 'rotate') {
@@ -15,8 +16,7 @@ export default{
         }
         efeito = `rotate(${current}deg)`
       } else if (binding.arg == 'scale') {
-
-          efeito = `scale(${incremento})`
+        efeito = `scale(${incremento})`
       }
 
       el.style.transform = efeito

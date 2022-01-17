@@ -81,6 +81,8 @@ ul,
 }
 .conteudo {
   margin: 5%;
+  display: flex;
+  justify-content: center;
 }
 .pagina-enter-active {
   transition: all 0.3s ease;
@@ -90,6 +92,7 @@ ul,
 }
 .pagina-enter, .pagina-leave-to
 /* .pagina-leave-active below version 2.1.8 */ {
+
   opacity: 0;
 }
 </style>
