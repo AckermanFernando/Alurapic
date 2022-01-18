@@ -47,9 +47,6 @@ export default {
 .painel-conteudo {
   overflow: hidden;
 }
-* {
-  /* box-shadow: 5px 5px 5px; */
-}
 .painel-fade-enter-active {
   transition: all 0.3s ease;
 }

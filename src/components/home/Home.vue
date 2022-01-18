@@ -60,6 +60,8 @@ import Painel from "../shared/painel/Painel.vue";
 import ImagemResponsiva from "../shared/imagem-responsiva/ImagemResponsiva.vue";
 import Botao from "../shared/botao/Botao.vue";
 import transform from "../../directives/Transform";
+import FotoService from "../../domain/foto/FotoService";
+
 export default {
   components: {
     "meu-painel": Painel,
@@ -95,7 +97,7 @@ export default {
 
   methods: {
     remove(foto) {
-      this.$http.delete(`http://localhost:3000/v1/fotos/${foto._id}`).then(
+      this.service.apaga(foto._id).then(
         () => {
           let indice = this.fotos.indexOf(foto);
           this.fotos.splice(indice, 1);
@@ -113,27 +115,19 @@ export default {
     },
     adiciona(foto) {
       alert("A foto " + foto.titulo + " foi adicionada com sucesso!");
-    },
-
-    getFunction() {
-      this.$http
-        .get("http://localhost:3000/v1/fotos")
-        .then((res) => res.json())
-        .then(
-          (fotos) => (this.fotos = fotos),
-          (err) => console.log(err)
-        );
+      this.message = "Foto adicionada com sucesso!!!";
+      setTimeout(() => {
+        this.message = "";
+      }, 2000);
     },
   },
 
   created() {
-    this.$http
-      .get("http://localhost:3000/v1/fotos")
-      .then((res) => res.json())
-      .then(
-        (fotos) => (this.fotos = fotos),
-        (err) => console.log(err)
-      );
+    this.service = new FotoService(this.$resource);
+    this.service.lista().then(
+      (fotos) => (this.fotos = fotos),
+      (err) => console.log(err)
+    );
   },
 };
 </script>
@@ -167,11 +161,10 @@ ul {
   transition: all 1s ease;
 }
 .message-delete-leave-active {
-  transition: all 1s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 1s ease;
 }
-.message-delete-enter, .message-delete-leave-to
+.message-delete-enter, .message-delete-leave
 /* .message-delete-leave-active below version 2.1.8 */ {
-
   opacity: 0;
 }
 </style>
