@@ -6,8 +6,8 @@
       >{{ titulo2 }} <span class="texto-azul">{{ titulo3 }}</span>
     </h1>
     <transition name="message-delete"
-      ><p v-if="controleMessage " class="centralizado">
-        {{ message }} 
+      ><p v-if="controleMessage" class="centralizado">
+        {{ message }}
       </p>
     </transition>
 
@@ -36,12 +36,9 @@
             :url="foto.url"
             :titulo="foto.titulo"
           />
-          <meu-botao
-            tipo="button"
-            rotulo="ADICIONAR"
-            estilo="padrao"
-            @botaoAtivado="adiciona(foto)"
-          />
+          <router-link :to="{ name: 'altera', params: { id: foto._id } }"
+            ><meu-botao tipo="button" rotulo="ALTERAR" estilo="padrao"
+          /></router-link>
           <meu-botao
             tipo="submit"
             rotulo="REMOVER"
@@ -98,20 +95,19 @@ export default {
 
   methods: {
     remove(foto) {
+      this.controleMessage = true;
       this.service.apaga(foto._id).then(
         () => {
           let indice = this.fotos.indexOf(foto);
           this.fotos.splice(indice, 1);
           this.message = "Foto removida com sucesso!!!";
-          this.controleMessage = true
           setTimeout(() => {
             this.controleMessage = false;
           }, 2000);
           // el.style.transition = 'transition opacity 0.8s 0.5s linear'
         },
         (err) => {
-          alert("Foto " + foto.titulo + " apagada!");
-          console.log(err);
+          this.message = err.message
         }
       );
     },
@@ -128,7 +124,10 @@ export default {
     this.service = new FotoService(this.$resource);
     this.service.lista().then(
       (fotos) => (this.fotos = fotos),
-      (err) => console.log(err)
+      (err) => {
+        this.controleMessage = true;
+        this.message = err.message;
+      }
     );
   },
 };
@@ -149,13 +148,13 @@ ul {
   list-style: none;
   margin: auto 10%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 .lista-fotos .lista-fotos-item {
   display: inline-block;
 }
-.lista-fotos-item{
+.lista-fotos-item {
   margin-bottom: 20px;
 }
 .filtro {
@@ -166,11 +165,12 @@ ul {
   /* box-shadow: 4px 3px 8px 0px ; */
 }
 
-.message-delete-enter-active, .message-delete-leave-active {
-  transition: opacity .5s;
+.message-delete-enter-active,
+.message-delete-leave-active {
+  transition: opacity 0.5s;
 }
-.message-delete-enter, .message-delete-leave-to {
+.message-delete-enter,
+.message-delete-leave-to {
   opacity: 0;
 }
-
 </style>

@@ -1,8 +1,14 @@
 <template class="conteudo">
   <div class="corpo">
-    <div >
-      <h1 class="centralizado">Cadastro</h1>
+    <div>
+      <!-- <h1 class="centralizado">Cadastro</h1> -->
+      <h1 class="centralizado" v-if="this.id">Atualizar</h1>
+      <h1 class="centralizado" v-else>Cadastro</h1>
+
       <h2 class="centralizado">{{ foto.titulo }}</h2>
+      
+      <!-- <h2 class="centralizado" v-if="this.id">Alterando</h2>
+      <h2 class="centralizado" v-if="!this.id">Cadastrando</h2> -->
 
       <form @submit.prevent="gravar()">
         <div class="controle">
@@ -32,7 +38,7 @@
 
         <div class="centralizado">
           <meu-botao rotulo="GRAVAR" tipo="submit" />
-          <router-link :to="{name: 'home'}"
+          <router-link :to="{ name: 'home' }"
             ><meu-botao rotulo="VOLTAR" tipo="button"
           /></router-link>
         </div>
@@ -45,7 +51,7 @@
 import ImagemResponsiva from "../shared/imagem-responsiva/ImagemResponsiva.vue";
 import Botao from "../shared/botao/Botao.vue";
 import Foto from "../../domain/foto/Foto";
-import FotoService from '../../domain/foto/FotoService';
+import FotoService from "../../domain/foto/FotoService";
 
 export default {
   components: {
@@ -56,24 +62,39 @@ export default {
   data() {
     return {
       foto: new Foto(),
+      id: this.$route.params.id,
     };
   },
 
   methods: {
+    alterar(id) {
+      let novaFoto = this.service
+        .listaId(this.id)
+        .then(console.log("funfou"), (err) => console.log(err));
+      // alert(novaFoto);
+    },
     gravar() {
       this.service.cadastra(this.foto).then(
-        () => this.foto = new Foto(),
-        err => console.log(err)
+        () => {
+          if (this.id) {
+            this.$router.push({ name: "home" });
+          }
+          this.foto = new Foto();
+        },
+        (err) => console.log(err)
       );
     },
   },
-  created(){
-    this.service = new FotoService(this.$resource)
-  }
+  created() {
+    this.service = new FotoService(this.$resource);
+    if (this.id) {
+      this.service.busca(this.id).then((foto) => (this.foto = foto));
+    }
+  },
 };
 </script>
 <style scoped>
-.conteudo{
+.conteudo {
   display: flex;
   justify-content: center;
 }
