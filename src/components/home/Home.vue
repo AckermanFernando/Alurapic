@@ -6,8 +6,8 @@
       >{{ titulo2 }} <span class="texto-azul">{{ titulo3 }}</span>
     </h1>
     <transition name="message-delete"
-      ><p v-show="message" class="centralizado">
-        {{ message }}
+      ><p v-if="controleMessage " class="centralizado">
+        {{ message }} 
       </p>
     </transition>
 
@@ -78,6 +78,7 @@ export default {
       fotos: [],
       filtro: "",
       message: "",
+      controleMessage: false,
       titulo1: "Navegue por",
       titulo2: " milhares ",
       titulo3: "de imagens",
@@ -102,8 +103,9 @@ export default {
           let indice = this.fotos.indexOf(foto);
           this.fotos.splice(indice, 1);
           this.message = "Foto removida com sucesso!!!";
+          this.controleMessage = true
           setTimeout(() => {
-            this.message = "";
+            this.controleMessage = false;
           }, 2000);
           // el.style.transition = 'transition opacity 0.8s 0.5s linear'
         },
@@ -163,14 +165,12 @@ ul {
   height: 2rem;
   /* box-shadow: 4px 3px 8px 0px ; */
 }
-.message-delete-enter-active {
-  transition: all 1s ease;
+
+.message-delete-enter-active, .message-delete-leave-active {
+  transition: opacity .5s;
 }
-.message-delete-leave-active {
-  transition: all 1s ease;
-}
-.message-delete-enter, .message-delete-leave
-/* .message-delete-leave-active below version 2.1.8 */ {
+.message-delete-enter, .message-delete-leave-to {
   opacity: 0;
 }
+
 </style>
