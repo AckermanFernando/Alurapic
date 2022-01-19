@@ -1,7 +1,13 @@
 <template>
   <div id="app" class="corpo">
     <div class="topo">
-      <div><img class="logo" src="https://github.com/AckermanFernando/Alurapic/blob/master/src/img/logo.png?raw=true" alt="logo alurapic"></div>
+      <div>
+        <img
+          class="logo"
+          src="https://github.com/AckermanFernando/Alurapic/blob/master/src/img/logo.png?raw=true"
+          alt="logo alurapic"
+        />
+      </div>
       <!-- <h1 class="titulo">{{ titulo }}</h1> -->
       <!-- <div class="space"></div> -->
       <meu-menu class="menu" :rotas="routes" />
@@ -26,7 +32,7 @@ export default {
 
   data() {
     return {
-      routes: routes.filter(route => route.menu),
+      routes: routes.filter((route) => route.menu),
       titulo: "Alurapic",
     };
   },
@@ -34,7 +40,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 * {
   color: #07060b;
 }
@@ -44,20 +50,18 @@ ul,
 #app {
   margin: 0;
   font-size: x-large;
-  
 }
-.listra-amarela{
+.listra-amarela {
   height: 5px;
   background: #d2991f;
 }
-.logo{
+.logo {
   margin-left: 1rem;
   width: 125px;
   height: 125px;
 }
 .titulo {
   color: #d2991f;
-  
 }
 .space {
   width: 20%;
@@ -68,7 +72,7 @@ ul,
 }
 .corpo {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   width: 100%;
 }
 .topo {
@@ -88,11 +92,9 @@ ul,
   transition: all 0.3s ease;
 }
 .pagina-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.3s ease;
 }
-.pagina-enter, .pagina-leave-to
-/* .pagina-leave-active below version 2.1.8 */ {
-
+.pagina-enter, .pagina-leave-to{
   opacity: 0;
 }
 </style>

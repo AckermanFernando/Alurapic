@@ -146,9 +146,15 @@ ul {
 .lista-fotos {
   list-style: none;
   margin: auto 10%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 .lista-fotos .lista-fotos-item {
   display: inline-block;
+}
+.lista-fotos-item{
+  margin-bottom: 20px;
 }
 .filtro {
   margin-bottom: 5em;
