@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <img src="./img/erro404.jpg" alt="erro" />
-    <a href="https://br.freepik.com/fotos-vetores-gratis/negocio"
+  <div class="conteudo" >
+    <img class="imagem" src="https://github.com/AckermanFernando/Alurapic/blob/master/src/img/erro404.jpg?raw=true" alt="erro" />
+    <a class="autoria" href="https://br.freepik.com/fotos-vetores-gratis/negocio"
       >Negócio vetor criado por pikisuperstar - br.freepik.com</a
     >
   </div>
@@ -12,4 +12,23 @@ export default {};
 </script>
 
 <style scoped>
+.conteudo{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    /* align-content: space-between; */
+    /* flex-wrap: wrap; */
+
+}
+.imagem{    
+    width: 50%;
+    height: 100%;
+}
+.autoria{
+    margin-top: 20px;
+    align-items: flex-end;
+    font-size: 9px;
+}
 </style>
