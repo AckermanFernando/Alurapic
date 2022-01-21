@@ -16,8 +16,8 @@ const router = new VueRouter({ routes, mode: 'history' })
 Vue.use(VeeValidate, {
   locale: 'pt_BR',
   dictionary: {
-    pt_BR:{
-      messages: msg 
+    pt_BR: {
+      messages: msg
     }
   }
 })
