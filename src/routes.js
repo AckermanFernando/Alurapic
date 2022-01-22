@@ -1,7 +1,8 @@
-import Cadastro from './components/cadastro/Cadastro.vue'
+// import Cadastro from './components/cadastro/Cadastro.vue'
+const Cadastro = () => System.import("./components/cadastro/Cadastro.vue")
 import Home from './components/home/Home.vue'
 import Erro from './components/erro404/Erro.vue'
- 
+
 export const routes = [
     {path: '', name: 'home', component: Home, titulo: 'Início', menu : true},
     {path: '/cadastro', name: 'cadastro', component: Cadastro, titulo: 'Cadastro', menu : true},

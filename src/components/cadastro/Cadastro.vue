@@ -1,4 +1,4 @@
-<template class="conteudo">
+{<template class="conteudo">
   <div class="corpo">
     <div>
       <!-- <h1 class="centralizado">Cadastro</h1> -->
