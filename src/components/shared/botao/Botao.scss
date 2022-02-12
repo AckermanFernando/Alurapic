@@ -1,0 +1,38 @@
+$cor: #c21a0e;
+.botao {
+  /* display: inline-block;
+  padding: 10px;
+  border-radius: 3px;
+  margin: 10px;
+  font-size: 1.2em; */
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2em;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.botao-padrao:hover {
+  background-color: #2a8a2d; /* Green */
+  color: white;
+}
+.botao-perigo:hover {
+  background-color: $cor; /* Green */
+  color: white;
+}
+
+.botao-perigo {
+  background: #f44336;
+  color: white;
+}
+
+.botao-padrao {
+  background: #4caf50;
+  color: white;
+}

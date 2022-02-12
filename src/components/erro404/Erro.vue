@@ -1,6 +1,6 @@
 <template>
   <div class="conteudo" >
-    <img class="imagem" src="https://github.com/AckermanFernando/Alurapic/blob/master/src/img/erro404.jpg?raw=true" alt="erro" />
+    <img class="imagem" src="static/erro404.jpg" alt="erro" />
     <a class="autoria" href="https://br.freepik.com/fotos-vetores-gratis/negocio"
       >Negócio vetor criado por pikisuperstar - br.freepik.com</a
     >

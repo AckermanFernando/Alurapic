@@ -5,8 +5,8 @@ import Erro from './components/erro404/Erro.vue'
 
 export const routes = [
     {path: '', name: 'home', component: Home, titulo: 'Início', menu : true},
-    {path: '/cadastro', name: 'cadastro', component: () => import('./components/cadastro/Cadastro.vue'), titulo: 'Cadastro', menu : true},
-    {path: '/cadastro/:id', name: 'altera', component: () => import('./components/cadastro/Cadastro.vue'), titulo: 'Cadastro', menu: false},
+    {path: '/cadastro', name: 'cadastro', component: Cadastro, titulo: 'Cadastro', menu : true},
+    {path: '/cadastro/:id', name: 'altera', component: Cadastro, titulo: 'Cadastro', menu: false},
     {path: '*', component: Erro, menu : false}
     // {path: '/minhalista', component: Lista, titulo: 'Minha Lista'}
 ]

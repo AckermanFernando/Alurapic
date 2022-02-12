@@ -4,7 +4,7 @@
       <div>
         <img
           class="logo"
-          src="https://github.com/AckermanFernando/Alurapic/blob/master/src/img/logo.png?raw=true"
+          src="static/logo.png"
           alt="logo alurapic"
         />
       </div>
