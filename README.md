@@ -15,4 +15,7 @@ npm run dev
 npm run build
 ```
 
+# API 
+https://s3.amazonaws.com/caelum-online-public/vue/stages/03-alurapic.zip
+
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
